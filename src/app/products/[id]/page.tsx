@@ -1,11 +1,22 @@
+import NotFound from "@/app/not-found";
+import { Metadata } from "next";
+
 type Props = {
   params: {
     id: string;
   };
 };
 
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `제품의 이름: ${params.id}`,
+  };
+}
+
 export default function PantsPage({ params }: Props) {
-  return <div>{params.id} 제품 설명 페이지</div>;
+  if (params.id === "nothing") {
+    NotFound();
+  }
 }
 
 export function generateStaticParams() {
