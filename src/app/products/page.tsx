@@ -1,3 +1,19 @@
+import Link from "next/link";
+import styles from "./page.module.css";
+
 export default function Products() {
-  return <div>products 안녕하세요.</div>;
+  const products = ["shirt", "pants", "skirt", "shoes"];
+
+  return (
+    <>
+      <h1>Products</h1>
+      <nav className={styles.nav}>
+        {products.map((item, index) => (
+          <li key={index}>
+            <Link href={`products/${item}`}>{item}</Link>
+          </li>
+        ))}
+      </nav>
+    </>
+  );
 }

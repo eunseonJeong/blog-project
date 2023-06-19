@@ -1,0 +1,9 @@
+.nav {
+  display: flex;
+  gap: 15px;
+  font-weight: 700;
+}
+
+.nav Link {
+  padding: 0 8px;
+}
