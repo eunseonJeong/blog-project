@@ -1,3 +1,4 @@
+import { getProduct, getProducts } from "@/api/products";
 import NotFound from "@/app/not-found";
 
 type Props = {
@@ -13,16 +14,17 @@ export function generateMetadata({ params }: Props) {
 }
 
 //서버 파일에 있는 데이터 중 해당 제품의 정보를 찾아서 그걸 보여줌
-export default function PantsPage({ params }: Props) {
-  if (params.id === "nothing") {
+export default function PantsPage({ params: { id } }: Props) {
+  const product = getProduct(id);
+  if (!product) {
     NotFound();
   }
-  return <h1>{params.id}의 제품 설명 페이지</h1>;
+  return <h1>{product}의 제품 설명 페이지</h1>;
 }
 
 //모든 제품의 페이지들을 미리 만들어 둘 수 있게 해줄거임 (SSG)
 export function generateStaticParams() {
-  const products = ["pants", "skirt"];
+  const products = getProducts();
   return products.map((product) => ({
     id: product,
   }));
