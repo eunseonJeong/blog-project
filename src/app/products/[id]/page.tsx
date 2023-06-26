@@ -1,5 +1,4 @@
 import NotFound from "@/app/not-found";
-import { Metadata } from "next";
 
 type Props = {
   params: {

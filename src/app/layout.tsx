@@ -1,10 +1,11 @@
 import { Inter } from "next/font/google";
 import styles from "./layout.module.css";
 import Link from "next/link";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blog-Project",
   description: "블로그 프로젝트를 진행하고 있습니다.",
   icons: {
