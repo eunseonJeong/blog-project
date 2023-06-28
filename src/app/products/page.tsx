@@ -2,6 +2,9 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { getProducts } from "@/api/products"; //Promise기 때문에 async await를 사용해줘야 함
 
+//ISR
+export const revalidate = 3;
+
 //서버 데이터에 있는 제품의 리스트를 읽어와서 보여주기
 export default async function ProductsPage() {
   const products = await getProducts();
